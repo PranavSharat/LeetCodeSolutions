@@ -1,0 +1,71 @@
+class Solution {
+    ArrayList<String> result = new ArrayList<String>();
+    public List<String> letterCombinations(String digits) {
+        if(digits.length()==0){
+            return result;
+        }
+        else{
+            checkResultLetter(digits,"",0,digits.length());
+            return result;
+        }
+    }
+    
+    public void checkResultLetter(String digits,String letters,int location,int size){
+        if(size==location){
+            result.add(letters);
+            return;
+        }
+        else{
+            char current = digits.charAt(location);
+            location++;
+            if(current=='2'){
+                checkResultLetter(digits,letters+'a',location,size);
+                checkResultLetter(digits,letters+'b',location,size);
+                checkResultLetter(digits,letters+'c',location,size);
+            }
+            else if(current=='3'){
+                checkResultLetter(digits,letters+'d',location,size);
+                checkResultLetter(digits,letters+'e',location,size);
+                checkResultLetter(digits,letters+'f',location,size);
+                
+            }
+            else if(current=='4'){
+                checkResultLetter(digits,letters+'g',location,size);
+                checkResultLetter(digits,letters+'h',location,size);
+                checkResultLetter(digits,letters+'i',location,size);
+                
+            }
+            else if(current=='5'){
+                checkResultLetter(digits,letters+'j',location,size);
+                checkResultLetter(digits,letters+'k',location,size);
+                checkResultLetter(digits,letters+'l',location,size);
+                
+            }
+            else if(current=='6'){
+                checkResultLetter(digits,letters+'m',location,size);
+                checkResultLetter(digits,letters+'n',location,size);
+                checkResultLetter(digits,letters+'o',location,size);
+                
+            }
+            else if(current=='7'){
+                checkResultLetter(digits,letters+'p',location,size);
+                checkResultLetter(digits,letters+'q',location,size);
+                checkResultLetter(digits,letters+'r',location,size);
+                checkResultLetter(digits,letters+'s',location,size);
+                
+            }
+            else if(current=='8'){
+                checkResultLetter(digits,letters+'t',location,size);
+                checkResultLetter(digits,letters+'u',location,size);
+                checkResultLetter(digits,letters+'v',location,size);
+                
+            }
+            else{
+                checkResultLetter(digits,letters+'w',location,size);
+                checkResultLetter(digits,letters+'x',location,size);
+                checkResultLetter(digits,letters+'y',location,size);
+                checkResultLetter(digits,letters+'z',location,size);
+            }
+        }
+    }
+}
