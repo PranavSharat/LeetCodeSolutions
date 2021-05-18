@@ -1,0 +1,21 @@
+class Solution {
+    ArrayList<Integer> current = new ArrayList<Integer>();
+    int currentSize=0;
+    public List<Integer> rightSideView(TreeNode root) {
+        checkTree(root,1);
+        return current;
+    }
+    
+    public void checkTree(TreeNode root,int currentDepth){
+        if(root==null){
+            return;
+        }
+        if(currentDepth>currentSize){
+            current.add(root.val);
+            currentSize++;
+        }
+        
+        checkTree(root.right,currentDepth+1);
+        checkTree(root.left,currentDepth+1);
+    }
+}
