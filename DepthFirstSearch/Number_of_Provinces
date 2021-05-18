@@ -1,0 +1,29 @@
+class Solution {
+    HashSet<Integer> checked = new HashSet<Integer>();
+    public int findCircleNum(int[][] M) {
+        int count=0;
+        for(int i=0;i<M.length;i++){
+            if(!checked.contains(i)){
+                count++;
+                checkFriends(M,i);
+            }
+        }
+        
+        return count;
+    }
+    
+    public void checkFriends(int[][] M,int currentP){
+        if(!checked.contains(currentP)){
+            checked.add(currentP);
+            for(int i=0;i<M[0].length;i++){
+                if(M[currentP][i]!=0){
+                    checkFriends(M,i);
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+}
