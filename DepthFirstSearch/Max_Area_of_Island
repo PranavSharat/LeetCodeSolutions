@@ -1,0 +1,29 @@
+class Solution {
+    public int maxAreaOfIsland(int[][] grid) {
+        int maxSize=0;
+        for(int i=0;i<grid.length;i++){
+            for(int k=0;k<grid[0].length;k++){
+                if(grid[i][k]==1){
+                    maxSize=Math.max(maxSize,checkGrid(grid,i,k,grid.length,grid[0].length));
+                }
+            }
+        }
+        
+        return maxSize;
+    }
+    
+    public int checkGrid(int[][] grid,int i,int k,int sizeOne,int sizeTwo){
+        if(i<0 || i>=sizeOne || k<0 || k>=sizeTwo){
+            return 0;
+        }
+        else{
+            if(grid[i][k]==1){
+                grid[i][k]=0;
+                return 1+checkGrid(grid,i+1,k,sizeOne,sizeTwo)+checkGrid(grid,i-1,k,sizeOne,sizeTwo)+checkGrid(grid,i,k+1,sizeOne,sizeTwo)+checkGrid(grid,i,k-1,sizeOne,sizeTwo);
+            }
+            else{
+                return 0;
+            }
+        }
+    }
+}
